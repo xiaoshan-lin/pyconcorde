@@ -73,9 +73,9 @@ class TSPSolver(object):
         else:
             return "TSPSolver with {} nodes".format(self._ncount)
 
-    def solve(self, time_bound=-1, verbose=True, random_seed=0):
+    def solve(self, time_bound=-1, verbose=1, random_seed=0):
         res = _CCtsp_solve_dat(
             self._ncount, self._data, "name",
-            time_bound, not verbose, random_seed
+            time_bound, verbose, random_seed
         )
         return ComputedTour(*res)
